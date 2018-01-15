@@ -16,6 +16,8 @@ If `EDITOR` is not set, uses nano
 
 ## Examples
 
+### Installing packages
+
 Session 1 - set up queued execution
 
 	cumul.sh add packages htop tmux
@@ -24,3 +26,16 @@ Session 1 - set up queued execution
 Session 2 - remember other things you want to add
 
 	cumul.sh add packages apache2 php libapache2-mod-php
+
+### Copying files
+
+Session 1
+
+	cumul.sh add dirs Music Pictures
+	cumul.sh dirs -- rsync -az {%} me@server:./
+
+	# note -- "cumul.sh dirs -- rsync -az {%} me@server:./{%}" would not work
+
+Session 2 - remember you wanted to sync something else
+
+	cumul.sh add dirs Videos Documents
